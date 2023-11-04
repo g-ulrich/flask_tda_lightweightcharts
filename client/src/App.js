@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from 'react'
+import {Quotes} from './components/Quotes'
+import "./App.css";
+/*
+    useState: This is a hook in React that allows functional components to manage state.
+    It returns an array containing the current state value and a function to update it.
 
+    useEffect: This is another hook that enables you to perform side effects in functional components.
+    Side effects can include data fetching, DOM manipulation, and more. You use useEffect to handle
+    lifecycle events in functional components.
+*/
 function App() {
+    const [quotes, setQuotes] = useState([{}])
+    useEffect(() => {
+        fetch("/quotes").then(
+            res => res.json()
+        ).then(
+            data => {
+//                console.log(data);
+                setQuotes(data)
+            }
+        )
+    }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Quotes quotes={quotes}/>
     </div>
   );
 }
