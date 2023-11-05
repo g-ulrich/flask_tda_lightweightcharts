@@ -1,17 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
 import reportWebVitals from './reportWebVitals';
+import { Container, Header } from 'semantic-ui-react'
+
+import pkg from 'semantic-ui-react/package.json'
+import App from "./App";
+
+const AppContainer = ({ children }) => (
+  <Container fluid style={{ padding: 20 }}>
+    {children}
+  </Container>
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <AppContainer>
+        <React.StrictMode>
+        <App />
+      </React.StrictMode>
+  </AppContainer>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
