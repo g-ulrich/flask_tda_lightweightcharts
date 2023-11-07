@@ -11,16 +11,16 @@ app = Flask(__name__)
 # Define a route to serve the React app
 @app.route('/quotes')
 def quote():
-    # q = []
-    # symbol_list = [i for i in SYMBOLS if len(i) <= 4 and "-" not in i and "." not in i][-1000:]
-    # for i in split_list(symbol_list, 250):
-    #     try:
-    #         qu = tda.get_quotes(i)
-    #         for quote in qu:
-    #             q.append(quote)
-    #     except:
-    #         pass
-    return {"quote": tda.get_quotes(['QQQ', 'TQQQ', 'NVDA', 'TSLA', 'SQQQ'])}
+    q = []
+    symbol_list = [i for i in SYMBOLS if len(i) <= 4 and "-" not in i and "." not in i][-300:]
+    for i in split_list(symbol_list, 250):
+        try:
+            qu = tda.get_quotes(i)
+            for quote in qu:
+                q.append(quote)
+        except:
+            pass
+    return {"quote": [i for i in q if i['totalVolume'] > 1000]}
 
 
 @app.route('/')
