@@ -12,7 +12,7 @@ app = Flask(__name__)
 @app.route('/quotes')
 def quote():
     q = []
-    symbol_list = [i for i in SYMBOLS if len(i) <= 4 and "-" not in i and "." not in i][-300:]
+    symbol_list = [i for i in SYMBOLS if len(i) <= 4 and "-" not in i and "." not in i]
     for i in split_list(symbol_list, 250):
         try:
             qu = tda.get_quotes(i)
@@ -23,9 +23,9 @@ def quote():
     return {"quote": [i for i in q if i['totalVolume'] > 1000]}
 
 
-@app.route('/')
-def index():
-    return render_template("client/public/index.html")
+# @app.route('/')
+# def index():
+#     return render_template("client/public/index.html")
 
 
 # Define API routes and endpoints in api.py (separated for organization)

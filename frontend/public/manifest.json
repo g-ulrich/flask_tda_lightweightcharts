@@ -1,6 +1,6 @@
 {
-  "short_name": "Tradex",
-  "name": "A visual guide to trade.",
+  "short_name": "React App",
+  "name": "Create React App Sample",
   "icons": [
     {
       "src": "favicon.ico",
