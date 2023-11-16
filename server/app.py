@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 from API.TD import TDA
-from common.tools import Log, split_list
+from common.tools import Log, split_list, tree_traverse
 from common.active_symbols import symbols as SYMBOLS
 log = Log()
 log.empty_log_file()
@@ -21,6 +21,13 @@ def quote():
         except:
             pass
     return {"quote": [i for i in q if i['totalVolume'] > 1000]}
+
+
+@app.route('/market_hours')
+def market_hours():
+    tda.update_market_hours()
+    return {"obj": tree_traverse(tda.market_hours_obj, 'sessionHours'), "open": tda.is_market_open, "pre": tda.is_pre_market_open,
+            "reg": tda.is_regular_market_open, "post": tda.is_post_market_open}
 
 
 # @app.route('/')

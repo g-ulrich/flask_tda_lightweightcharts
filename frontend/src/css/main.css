@@ -12,3 +12,15 @@
   .font-comfortaa {
     font-family: 'Comfortaa-Light', sans-serif;
   }
+
+  /*
+.parent{
+  position: relative;
+}
+.child{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+  */

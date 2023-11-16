@@ -1,12 +1,17 @@
 // src/components/Home.js
 import React from 'react';
+import PageHeader from '../components/pageHeader';
+// import { MarketHoursProgress } from '../components/trackMarketHours';
+
 
 const Home = () => {
+  const pageTitle = "Dashboard";
   return (
-    <div class="grid grid-rows-2">
-      <div><h1 className="text-[30px]">Dashboard</h1></div>
-      <div>Body</div>
-      </div>
+    <div>
+      <PageHeader props={pageTitle }/>
+      
+      
+   </div>
   )
 };
 
