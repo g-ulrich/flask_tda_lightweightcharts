@@ -14,7 +14,7 @@ const PageHeader = (props) => {
   }, []); // Empty dependency array to run effect only once on mount
 
   return (
-    <div className="grid grid-rows-1 grid-cols-3 grid-flow-col gap-2">
+    <div className="grid grid-rows-1 grid-cols-3 grid-flow-col gap-2 mb-4">
       <div className="text-[30px]">{props.props}</div>
       <div>
         <MarketHoursProgress />

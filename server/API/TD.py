@@ -237,7 +237,10 @@ class TDA:
             df = df.assign(mmdd=[f"{i[5:8]}{i[8:10]}" for i in df['fdatetime'].tolist()])
             df = df.assign(index=[i for i in range(len(df))])
             if backup:
-                del self.intraday_backup[backup[0]]
+                try:
+                    del self.intraday_backup[backup[0]]
+                except:
+                    pass
             # check if newest row contains data
             if df.iloc[len(df) - 1]['close'] == 0.0:
                 df = df.drop(len(df) - 1)

@@ -1,7 +1,8 @@
-from flask import Flask, render_template
+from flask import Flask, request
 from API.TD import TDA
 from common.tools import Log, split_list, tree_traverse
 from common.active_symbols import symbols as SYMBOLS
+
 log = Log()
 log.empty_log_file()
 tda = TDA()
@@ -29,6 +30,19 @@ def market_hours():
     return {"obj": tree_traverse(tda.market_hours_obj, 'sessionHours'), "open": tda.is_market_open, "pre": tda.is_pre_market_open,
             "reg": tda.is_regular_market_open, "post": tda.is_post_market_open}
 
+
+
+@app.route('/intraday_history', methods=['POST'])
+def intraday_history():
+    data = request.json['data']
+    df = ""
+    df = tda.get_intraday_history(symbol=data['symbol'],
+        minute=data['minute'], days=data['days'],
+        ext=data['ext'],
+        current=data['current'],
+        max=data['max'],
+        from_last_close=data['from_last_close'])
+    return {'req': data, 'df': df.to_json(orient='records')}
 
 # @app.route('/')
 # def index():

@@ -35,6 +35,15 @@ export const getCurrentDateTime = () => {
     return randomString;
   }
 
+  export const formatCurrency = (number) => {
+    const formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD'
+    });
+  
+    return formatter.format(number);
+  }
+
 export const capitalizeString = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
@@ -101,4 +110,9 @@ export const getDayOfWeek = () => {
   const dayOfWeek = daysOfWeek[date.getDay()];
 
   return dayOfWeek;
+};
+
+export const getValueByKey = (jsonArray, key) => {
+  const result = jsonArray.map(item => item[key]);
+  return result;
 };

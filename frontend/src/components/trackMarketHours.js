@@ -72,7 +72,7 @@ export const MarketHoursProgress = () => {
                             </span>
                         </div>
                     </div>
-                    <ProgressBar percentage={calcTimeP(hours.pre.start, hours.post.end)}
+                    <ProgressBar percentage={100-calcTimeP(hours.pre.start, hours.post.end)}
                                 tooltiptext={`Market ${isMarketOpen(hours.pre.start, hours.post.end) && hours.open ? 'Open' : 'Closed'} ${getCurrentTime()}`}
                                 classes={'bg-discordPurple'} />
                 </div>)
