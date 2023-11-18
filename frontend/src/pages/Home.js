@@ -1,23 +1,15 @@
 import React from 'react';
-import FinanceChart from '../components/chart';
+import FinanceChart from '../components/charts/financeChartWidget';
 import PageHeader from '../components/pageHeader';
 import Quotes from '../components/quotes';
 
 const Home = () => {
   const pageTitle = "Dashboard";
  
-  const data = {
+  const chartProps = {
     height: "500px",
-    daily: null,
-    intraday: {
-        symbol: 'QQQ',
-        minute: 5,
-        days: 5,
-        ext: false,
-        current: false,
-        max: false,
-        from_last_close: false
-    }
+    symbol: 'QQQ',
+    dailyCandles: false 
   };
 
   return (
@@ -25,10 +17,10 @@ const Home = () => {
       <PageHeader props={pageTitle} />
       <div className="grid grid-cols-12 gap-2 mb-2">
         <div className="col-span-8">
-          <FinanceChart props={data} />
+          <FinanceChart props={chartProps} />
         </div>
         <div className="col-span-4">
-          <Quotes props={data} />
+          <Quotes props={chartProps} />
         </div>
       </div>
     </div>

@@ -35,13 +35,22 @@ def market_hours():
 @app.route('/intraday_history', methods=['POST'])
 def intraday_history():
     data = request.json['data']
-    df = ""
     df = tda.get_intraday_history(symbol=data['symbol'],
         minute=data['minute'], days=data['days'],
         ext=data['ext'],
         current=data['current'],
         max=data['max'],
         from_last_close=data['from_last_close'])
+    return {'req': data, 'df': df.to_json(orient='records')}
+
+@app.route('/daily_history', methods=['POST'])
+def daily_history():
+    data = request.json['data']
+    df = tda.get_daily_history(symbol=data['symbol'],
+        years=data['years'],
+        ext=data['ext'],
+        current=data['current'],
+        max=data['max'])
     return {'req': data, 'df': df.to_json(orient='records')}
 
 # @app.route('/')

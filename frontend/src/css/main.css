@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* 
+npx tailwindcss watch src/css/main.css -o dist/main.css 
+*/
 
 @font-face {
     font-family: 'Comfortaa-Light';

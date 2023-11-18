@@ -273,7 +273,7 @@ class TDA:
                 new_row['datetime'] = datetime.timestamp(datetime.now())
                 df = pd.concat([df, pd.DataFrame(new_row)])
                 df = df.reset_index(drop=True)
-            df = df.assign(freq=["min"] * len(df))
+            df = df.assign(freq=[minute] * len(df))
             df = df.assign(symbol=[symbol] * len(df))
             df = df.assign(
                 fdatetime=[datetime.fromtimestamp(int(str(i)[:10])).isoformat() for i in df['datetime'].tolist()])
