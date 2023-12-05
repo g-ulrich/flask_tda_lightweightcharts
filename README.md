@@ -26,7 +26,7 @@ node dev-script.js
 ### Since I switched from TDA to Schwab my TD API dev account has been deleted. The screenshots would normally include lightweightcharts candle history for the hard coded symbol. The page would also normally include what market is currently is open.
 
 **Screenshot 1**
-![Tradex Dashboard](dashboard.png)
+![Tradex Dashboard](dashboard1.png)
 *Tradex Dashboard*
 
 **Screenshot 2**
