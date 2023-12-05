@@ -23,13 +23,14 @@ node dev-script.js
 **Important:** This project is being abandoned and is provided as-is. It may be useful for someone in need of a poorly written boilerplate Flask/React project.
 
 ## Screenshots
+### Since I switched from TDA to Schwab my TD API dev account has been deleted. The screenshots would normally include lightweightcharts candle history for the hard coded symbol. The page would also normally include what market is currently is open.
 
 **Screenshot 1**
-![Alt Text](/path/to/screenshot.png)
-*Caption for Screenshot 1*
+![Tradex Dashboard](dashboard.png)
+*Tradex Dashboard*
 
 **Screenshot 2**
-![Alt Text](/path/to/screenshot.png)
-*Caption for Screenshot 2*
+![Tradex widget](widget.png)
+*Tradex TradingView Widget page*
 
 Feel free to reach out with any questions or concerns.
