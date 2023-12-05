@@ -1,5 +1,7 @@
 # Flask-TDA-LightweightCharts
-
+![flask](flask.png)
+![react](react.png)
+![td ameritrade](td.png)
 ## Overview
 
 Flask-TDA-LightweightCharts is a Python Flask application delivering a ReactJS frontend for interacting with the TD Ameritrade API. Please be aware that, as of December 5, 2023, the TD Ameritrade API is currently in the process of being deprecated and might be moved to Schwab.
